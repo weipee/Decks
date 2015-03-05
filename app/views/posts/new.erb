@@ -1,0 +1,28 @@
+<div class="container">
+</br>
+ <form action="/posts" method="post">
+    <input type = "text" placeholder = "title" name = "title">
+    <input type = "textarea" placeholder = "body" name = "body">
+    <input type = "textarea" placeholder = "tag" name = "tag">
+    <input type = "Submit" value = "Create New Post">
+</form><br>
+
+<br>
+
+</div>
+
+<div class="container">
+  <center>
+
+    <h1>Question <%= @deck.name %>!</h1>
+      <p> <%=  @question[@number.to_i].question %></p>
+        <form action="/deck/<%= @deck.id%>/card/<%= @question[@number.to_i].id%>" method="post">
+        <input type="text" name="answer">
+        <input type="submit" value="Answer!">
+        </form> <br>
+
+  <a href= "/sign_out" >Sign out</a>
+  <br>
+
+</center>
+</div>

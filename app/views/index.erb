@@ -1,0 +1,44 @@
+<div class="container">
+
+  <a href="/posts/new"><button>New post</button></a>
+
+<h2>Log in or sign up </h2>
+  <form action="/login" method="post">
+    <p>Login to your account:</p>
+    <input type="text" name="email" placeholder="Your email">
+    <input type="password" name="password" placeholder="Your password">
+    <input type="submit" value="Log in">
+  </form>
+<br>
+
+<form action="/register" method="post">
+    <p>Register a new account:</p>
+    <input type="text" name="user[email]" placeholder="Your email">
+    <input type="password" name="user[password]" placeholder="Your password">
+    <input type="submit" value="Register!">
+  </form>
+  <br>
+  <% if @user && @user.errors %>
+  <% @user.errors.full_messages.each do |error| %>
+   <p class="error"><%= error %></p>
+  <% end %>
+<% end %>
+
+
+<br>
+<% @posts.each do |x| %>
+<h2><a href= "/posts/<%= x.id %>"><%= x.title %></a></h2>
+</br>
+  <p><%= x.body %></p>
+  <% x.tags.each do |tag| %>
+    <p><%= tag.name %></p>
+  <%end%>
+  <p> This post was created on <%=x.created_at%> </p>
+   <form action="/posts/<%= x.id %>" method="post">
+    <input type ="hidden" name="_method" value= "delete">
+    <input type = "Submit" value = "Delete">
+</form><br>
+<%end%>
+
+
+</div>

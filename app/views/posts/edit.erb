@@ -1,0 +1,9 @@
+
+ <form action="/posts/<%= @current_post.id %>" method="post">
+    <input type = hidden  name = "_method" value= "put">
+    <input type = "text" value = "<%= @current_post.title %>" name = "title">
+    <input type = "textarea" value = "<%= @current_post.body %>" name = "body">
+    <input type = "textarea" value = "<%= @current_post.tags.first.name %>" name = "tag">
+    <input type = "Submit" value = "Save Changes">
+</form><br>
+

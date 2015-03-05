@@ -1,0 +1,10 @@
+<h1><%= @current_post.title %></h1>
+<p>Body = <%= @current_post.body %></p>
+<p><% t=@current_post.tags %></p>
+
+<%t.each do |x|%>
+<p><%=x.name%></p>
+<%end%>
+
+
+<a href="/posts/<%= @current_post.id %>/edit"><button>Edit</button></a>
